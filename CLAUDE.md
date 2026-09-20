@@ -12,7 +12,7 @@
 ## 이 사이트만의 구조
 | 파일 | 내용 |
 |---|---|
-| `index.html` | 홈 (히어로 SVG = circuit-mountain 모티프) |
+| `index.html` | 홈 (히어로 SVG = undefined 모티프) |
 | `schools.html` | 구미 초·중·고 103곳 목록 + 검색 |
 | `school/*.html` | **학교별 정적 페이지 103개** — SEO 의 핵심. 학교당 국어·영어·수학·사회·과학·코딩 키워드 |
 | `teachers.html` | 선생님 (구미 방문 2명 + 화상 673명) |
