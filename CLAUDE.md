@@ -17,7 +17,7 @@
   - 홈 `index.html` — 과목 카드에 `구미 한국사과외` 추가, 그 아래 `구미 중간고사·기말고사와 방학 계획` 블록 추가(중간고사·기말고사·여름방학·겨울방학 키워드).
   - `online.html` 에 구미 읍·면·동 38곳 목록 추가(화상과외 주력 지역).
   - `centers.html` 에 와와학습코칭센터 옥계점 상세(인근 학교·아파트·학년별 코칭) 추가 — 출처는 사용자 소유 사이트 wawaedu.kr.
-  - `og.png` (1200×630 배너) 추가 + 전 페이지 `og:image`·`twitter:image`·`twitter:card=summary_large_image`. 배너 소스는 `tools/og배너.html` (인물 사진 `tools/og-인물.png` 를 같은 폴더에 두고 연다) — 고친 뒤 크롬 헤드리스로 다시 캡처한다: `chrome.exe --headless=new --window-size=1200,630 --virtual-time-budget=6000 --screenshot=og.png file:///.../og배너.html`
+  - `og-v3.png` (1200×630 배너, 현재 쓰는 것). **배너를 바꾸면 파일명 번호를 올리고**(og-v4.png) 전 페이지 `og:image` 를 같이 바꾼다 — 같은 파일명으로 덮어쓰면 카카오·네이버가 예전 이미지를 계속 보여준다. `og.png` 는 옛 버전 추가 + 전 페이지 `og:image`·`twitter:image`·`twitter:card=summary_large_image`. 배너 소스는 `tools/og배너.html` (인물 사진 `tools/og-인물.png` 를 같은 폴더에 두고 연다) — 고친 뒤 크롬 헤드리스로 다시 캡처한다: `chrome.exe --headless=new --window-size=1200,630 --virtual-time-budget=6000 --screenshot=og.png file:///.../og배너.html`
   - **메뉴에서 `상담신청` 삭제** — 오른쪽 상단 📞 상담신청 버튼과 중복이라 뺐다. 하단 고정 CTA·푸터 링크는 유지.
   - **`선생님` 메뉴 삭제** — 전 페이지 `nav-links` 에서 뺐다. 선생님은 화상과외 하위로 들어감: `online.html` 에 `화상과외 선생님 673명` 단락 + `teachers` 링크 추가, `teachers.html` 은 nav 에서 `화상과외` 를 active 로 표시. `teachers.html` 페이지 자체와 푸터 `선생님 찾기` 링크는 그대로 둠(sitemap 유지).
 - GA4 측정 ID 미발급. `analytics.js` 의 `GA_ID` 가 비어 있어 지금은 아무것도 보내지 않는다. 발급하면 그 한 줄만 채우고 `사이트관리/사이트대장.md` 10절에 적는다.
