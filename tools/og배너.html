@@ -7,162 +7,62 @@
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{width:1200px;height:630px}
-  body{
-    font-family:"Pretendard","Malgun Gothic",sans-serif;
-    position:relative;overflow:hidden;background:#eef7fb;
-  }
-  .bg{position:absolute;inset:0}
-  .stage{position:relative;width:1200px;height:630px}
+  body{font-family:"Pretendard","Malgun Gothic",sans-serif;position:relative;overflow:hidden;
+       background:linear-gradient(135deg,#f9fdff 0%,#eaf6fb 55%,#d9edf5 100%)}
 
-  /* ── 타이틀 ── */
-  .title{position:absolute;left:56px;top:56px;width:600px}
-  .kicker{
-    font-family:"Nanum Pen Script",cursive;font-size:36px;color:#3f6b78;
-    transform:rotate(-3deg);margin-left:6px;line-height:1
-  }
-  .big{
-    font-size:92px;font-weight:900;letter-spacing:-4.5px;line-height:1.0;
-    margin-top:8px;
-    -webkit-text-stroke:11px #fff;paint-order:stroke fill;
-    filter:drop-shadow(5px 7px 0 rgba(18,60,72,.22));
-  }
+  /* 오른쪽 인물 사진 */
+  .photo{position:absolute;right:0;top:0;width:356px;height:630px;border-radius:40px 0 0 40px;
+         background-image:url("girl.png");background-size:cover;background-position:center top;
+         box-shadow:-22px 0 44px -34px rgba(15,55,68,.55)}
+  .photo::before{content:"";position:absolute;left:0;top:0;width:96px;height:100%;border-radius:40px 0 0 40px;
+         background:linear-gradient(90deg,rgba(243,251,254,1) 0%,rgba(243,251,254,.72) 38%,rgba(243,251,254,0) 100%)}
+
+  /* 왼쪽 글 */
+  .title{position:absolute;left:52px;top:42px;width:720px}
+  .kicker{font-family:"Nanum Pen Script",cursive;font-size:38px;color:#3f6f7d;transform:rotate(-2.5deg);line-height:1;margin-left:4px}
+  .big{font-size:100px;font-weight:900;letter-spacing:-5px;line-height:.98;margin-top:4px;
+       -webkit-text-stroke:13px #fff;paint-order:stroke fill;
+       filter:drop-shadow(5px 7px 0 rgba(15,55,68,.2))}
   .big .l1{color:#ff2f8e;display:block}
-  .big .l2{color:#16b9d6;display:block;margin-top:2px}
-  .band{
-    display:inline-block;margin-top:16px;padding:7px 17px 9px;
-    background:#ffe23d;border-radius:8px;transform:rotate(-1.2deg);
-    font-size:33px;font-weight:900;letter-spacing:-1.6px;color:#123c48;
-    box-shadow:3px 4px 0 rgba(18,60,72,.16);
-  }
+  .big .l2{color:#12b4d4;display:block}
+  .band{display:inline-block;margin-top:16px;padding:7px 19px 9px;background:#ffe23d;border-radius:8px;
+        transform:rotate(-1.2deg);font-size:35px;font-weight:900;letter-spacing:-1.8px;color:#0f3744;
+        box-shadow:3px 4px 0 rgba(15,55,68,.18)}
   .band b{color:#ff2f8e}
-  .sub{margin-top:14px;font-size:25px;font-weight:800;letter-spacing:-1.4px;color:#134f5e}
-  .sub .line{display:inline-block;border-bottom:5px solid #ff9ecb;padding-bottom:2px}
+  .sub{margin-top:16px;font-size:26px;font-weight:800;letter-spacing:-1.3px;color:#12525f}
+  .sub span{border-bottom:5px solid #ff9ecb;padding-bottom:3px}
 
-  /* ── 말풍선 ── */
-  .bub{
-    position:absolute;background:#fff;border:3px solid #123c48;border-radius:22px;
-    padding:12px 18px;font-family:"Gaegu",cursive;font-weight:700;
-    font-size:27px;color:#123c48;line-height:1.24;text-align:center;
-    box-shadow:4px 5px 0 rgba(18,60,72,.16);
-  }
-  .bub::after{content:"";position:absolute;width:18px;height:18px;background:#fff;
-    border-right:3px solid #123c48;border-bottom:3px solid #123c48;transform:rotate(35deg)}
-  .b1{left:600px;top:26px}
-  .b1::after{left:52px;bottom:-11px}
-  .b2{right:26px;top:18px;background:#fff7cf}
-  .b2::after{background:#fff7cf;left:38px;bottom:-11px}
-  .crown{position:absolute;left:648px;top:-4px;font-size:30px;transform:rotate(-12deg)}
-
-  /* ── 카드 4개 ── */
-  .cards{position:absolute;left:36px;right:36px;bottom:80px;display:grid;
-    grid-template-columns:repeat(4,1fr);gap:12px}
-  .card{background:#fff;border-radius:16px;padding:10px 10px 11px;text-align:center;
-    box-shadow:0 10px 22px -14px rgba(18,60,72,.55)}
-  .c1{background:#fdeaf4}.c2{background:#e7f2fd}.c3{background:#e8f8ec}.c4{background:#fff6e2}
-  .card .ic{font-size:23px;line-height:1}
-  .card .t{margin-top:3px;font-size:21px;font-weight:900;letter-spacing:-1.3px;color:#123c48}
+  .cards{position:absolute;left:52px;bottom:100px;width:700px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .card{border-radius:16px;padding:12px 10px 13px;text-align:center;box-shadow:0 12px 22px -14px rgba(15,55,68,.5)}
+  .c1{background:#fdeaf4}.c2{background:#e6f1fd}.c3{background:#e7f8ec}
+  .card .ic{font-size:24px;line-height:1}
+  .card .t{margin-top:4px;font-size:22px;font-weight:900;letter-spacing:-1.3px;color:#0f3744}
   .card .t em{font-style:normal;color:#ff2f8e}
-  .card .d{margin-top:3px;font-size:15.5px;font-weight:700;letter-spacing:-.9px;color:#5b7f8a;line-height:1.35}
+  .card .d{margin-top:4px;font-size:16px;font-weight:700;letter-spacing:-.9px;color:#59808b;line-height:1.35}
 
-  /* ── 하단 리본 ── */
-  .ribbon{position:absolute;left:0;right:0;bottom:0;height:68px;background:#123c48;
-    display:flex;align-items:center;justify-content:center;gap:22px}
-  .ribbon .slog{font-family:"Gaegu",cursive;font-weight:700;font-size:31px;color:#ffe23d;letter-spacing:-1px}
+  .bub{position:absolute;background:#fff;border:3px solid #0f3744;border-radius:22px;padding:11px 17px;
+       font-family:"Gaegu",cursive;font-weight:700;font-size:26px;color:#0f3744;line-height:1.24;text-align:center;
+       box-shadow:4px 5px 0 rgba(15,55,68,.18)}
+  .bub::after{content:"";position:absolute;width:17px;height:17px;background:inherit;
+    border-right:3px solid #0f3744;border-bottom:3px solid #0f3744;transform:rotate(35deg)}
+  .b1{left:614px;top:26px;background:#fff7cf}
+  .b1::after{background:#fff7cf;right:40px;bottom:-10px}
+  .b2{right:20px;bottom:100px}
+  .b2::after{left:44px;bottom:-10px}
+  .crown{position:absolute;left:660px;top:-2px;font-size:30px;transform:rotate(-12deg);z-index:2}
+
+  .ribbon{position:absolute;left:0;right:0;bottom:0;height:72px;background:#0f3744;
+          display:flex;align-items:center;justify-content:center;gap:20px}
+  .ribbon .slog{font-family:"Gaegu",cursive;font-weight:700;font-size:30px;color:#ffe23d;letter-spacing:-1px}
   .ribbon .slog b{color:#fff}
-  .ribbon .tel{background:#ff2f8e;color:#fff;font-size:26px;font-weight:900;
-    padding:9px 22px;border-radius:999px;letter-spacing:-.6px}
-  .ribbon .dom{font-size:22px;font-weight:800;color:#8fc7d6;letter-spacing:.3px}
+  .ribbon .tel{background:#ff2f8e;color:#fff;font-size:25px;font-weight:900;padding:8px 20px;border-radius:999px}
+  .ribbon .dom{font-size:21px;font-weight:800;color:#86c3d4}
 </style>
 </head>
 <body>
-<div class="stage">
-<svg class="bg" viewBox="0 0 1200 630">
-  <defs>
-    <linearGradient id="room" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f7fdff"/><stop offset=".55" stop-color="#eaf6fb"/><stop offset="1" stop-color="#d9eef5"/>
-    </linearGradient>
-    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dff1f8"/>
-    </linearGradient>
-    <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#4a3229"/><stop offset="1" stop-color="#6b4a3a"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="630" fill="url(#room)"/>
-
-  <!-- 창문 -->
-  <g opacity=".85">
-    <rect x="700" y="26" width="470" height="300" rx="14" fill="url(#win)" stroke="#cfe6ee" stroke-width="4"/>
-    <line x1="935" y1="26" x2="935" y2="326" stroke="#cfe6ee" stroke-width="4"/>
-    <line x1="700" y1="176" x2="1170" y2="176" stroke="#cfe6ee" stroke-width="4"/>
-  </g>
-  <!-- 창밖 초록 -->
-  <g opacity=".5">
-    <circle cx="790" cy="120" r="46" fill="#bfe6c8"/><circle cx="845" cy="140" r="34" fill="#cdecd4"/>
-    <circle cx="1060" cy="110" r="40" fill="#cdecd4"/><circle cx="1110" cy="135" r="28" fill="#bfe6c8"/>
-  </g>
-  <!-- 화이트보드 -->
-  <rect x="44" y="24" width="540" height="270" rx="12" fill="#ffffff" opacity=".55" stroke="#dcecf2" stroke-width="3"/>
-
-  <!-- 책상 -->
-  <rect x="0" y="470" width="1200" height="160" fill="#e6d3bd" opacity=".55"/>
-  <rect x="0" y="466" width="1200" height="12" fill="#d8c0a4" opacity=".6"/>
-
-  <!-- 화분 -->
-  <g transform="translate(60,352)" opacity=".75">
-    <path d="M30 60 C6 46 2 18 16 4 C30 16 34 40 30 60Z" fill="#8fd3a6"/>
-    <path d="M30 60 C54 46 58 18 44 4 C30 16 26 40 30 60Z" fill="#a9e0ba"/>
-    <path d="M10 60 h40 l-6 34 h-28Z" fill="#e6a37f"/>
-  </g>
-
-  <!-- 책 더미 -->
-  <g transform="translate(96,486)">
-    <rect x="0" y="40" width="150" height="20" rx="5" fill="#7fc4d6"/>
-    <rect x="8" y="20" width="150" height="20" rx="5" fill="#ffd166"/>
-    <rect x="2" y="0"  width="150" height="20" rx="5" fill="#ff8fb8"/>
-  </g>
-
-  <!-- ── 학생 일러스트 ── -->
-  <g transform="translate(868,58) scale(0.96)">
-    <!-- 그림자 -->
-    <ellipse cx="120" cy="392" rx="132" ry="18" fill="#123c48" opacity=".08"/>
-    <!-- 뒷머리 -->
-    <path d="M120 24 C46 24 22 88 26 156 C29 212 22 268 14 316 C40 322 66 318 84 308 L84 150 L156 150 L156 308 C176 318 202 322 228 316 C220 268 213 212 216 156 C220 88 194 24 120 24Z" fill="url(#hair)"/>
-    <!-- 목 -->
-    <rect x="100" y="182" width="40" height="42" rx="16" fill="#f2c9a8"/>
-    <!-- 교복 상의 -->
-    <path d="M120 212 C80 212 46 236 38 276 C30 318 28 350 28 386 L212 386 C212 350 210 318 202 276 C194 236 160 212 120 212Z" fill="#ffffff"/>
-    <path d="M120 212 C104 212 88 216 76 224 L120 286 L164 224 C152 216 136 212 120 212Z" fill="#f4f7fa"/>
-    <!-- 조끼 -->
-    <path d="M76 224 C60 234 48 250 42 272 C34 312 32 350 32 386 L208 386 C208 350 206 312 198 272 C192 250 180 234 164 224 L120 288Z" fill="#2c4a63"/>
-    <!-- 리본 -->
-    <path d="M120 276 l-30 -14 l6 30 Z" fill="#d6335c"/>
-    <path d="M120 276 l30 -14 l-6 30 Z" fill="#d6335c"/>
-    <circle cx="120" cy="278" r="8" fill="#b02546"/>
-    <!-- 얼굴 -->
-    <ellipse cx="120" cy="140" rx="62" ry="70" fill="#fbdcc0"/>
-    <!-- 앞머리 -->
-    <path d="M58 132 C56 74 84 46 120 46 C156 46 184 74 182 132 C176 104 160 86 132 82 C120 106 92 118 58 132Z" fill="url(#hair)"/>
-    <!-- 눈 -->
-    <path d="M88 140 q12 -14 24 0" stroke="#3a2a22" stroke-width="7" fill="none" stroke-linecap="round"/>
-    <path d="M128 140 q12 -14 24 0" stroke="#3a2a22" stroke-width="7" fill="none" stroke-linecap="round"/>
-    <!-- 볼 -->
-    <ellipse cx="82" cy="164" rx="14" ry="9" fill="#ffb3c8" opacity=".6"/>
-    <ellipse cx="158" cy="164" rx="14" ry="9" fill="#ffb3c8" opacity=".6"/>
-    <!-- 입 -->
-    <path d="M108 172 q12 12 24 0" stroke="#c76a72" stroke-width="6" fill="none" stroke-linecap="round"/>
-    <!-- 팔 + 연필 -->
-    <path d="M186 300 C210 286 226 258 224 232" stroke="#fbdcc0" stroke-width="26" fill="none" stroke-linecap="round"/>
-    <g transform="translate(214,196) rotate(24)">
-      <rect x="0" y="0" width="12" height="54" fill="#ffd166"/>
-      <path d="M0 54 h12 l-6 14Z" fill="#f2b56b"/>
-      <rect x="0" y="0" width="12" height="10" fill="#ff8fb8"/>
-    </g>
-  </g>
-</svg>
+<div class="photo"></div>
 
 <span class="crown">👑</span>
-
 <div class="bub b1">구미 전문과외로<br/>내신도 수능도 자신있게!</div>
 <div class="bub b2">지금이<br/>바로 시작할 시간!</div>
 
@@ -170,21 +70,19 @@
   <div class="kicker">제대로 배워야 성적이 달라집니다!</div>
   <div class="big"><span class="l1">구미</span><span class="l2">전문과외</span></div>
   <div class="band">초 · 중 · 고 <b>내신 대비</b></div>
-  <div class="sub"><span class="line">기초부터 심화까지 1:1 맞춤 수업</span></div>
+  <div class="sub"><span>기초부터 심화까지 1:1 맞춤 수업</span></div>
 </div>
 
 <div class="cards">
-  <div class="card c1"><div class="ic">📘</div><div class="t">전과목 <em>과외</em></div><div class="d">국어·영어·수학<br/>사회·과학·한국사·코딩</div></div>
+  <div class="card c1"><div class="ic">📘</div><div class="t">전과목 <em>과외</em></div><div class="d">국어·영어·수학<br/>사회·과학·한국사</div></div>
   <div class="card c2"><div class="ic">🎓</div><div class="t">내신 · <em>수능</em></div><div class="d">학교별 기출 분석<br/>초1~고3·재수생</div></div>
   <div class="card c3"><div class="ic">📈</div><div class="t">학생별 <em>맞춤</em></div><div class="d">막힌 단원 되짚기<br/>오답·진도 관리</div></div>
-  <div class="card c4"><div class="ic">💻</div><div class="t">방문 · <em>화상</em></div><div class="d">구미 전 지역 방문<br/>화상 선생님 673명</div></div>
 </div>
 
 <div class="ribbon">
   <span class="slog">구미 전문과외가 만드는 <b>오늘보다 더 높은 내일!</b></span>
   <span class="tel">📞 010-6832-1994</span>
   <span class="dom">nadoedu.kr</span>
-</div>
 </div>
 </body>
 </html>
