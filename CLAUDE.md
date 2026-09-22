@@ -12,6 +12,7 @@
 ## 도메인 / 배포
 - 도메인: **nadoedu.kr** (가비아, 2026-09-21 연결). `CNAME` 파일 있음 · 주소 `https://nadoedu.kr/`
 - 도메인을 바꿀 때: `사이트관리/도구/지역과외/regions.js` 의 `domain` 을 고치고 재생성 → 사이트 안 주소(sitemap·canonical·og:url·robots)와 `CNAME` 이 같이 바뀐다. GitHub Pages 설정의 Custom domain 도 맞출 것
+- **네이버 서치어드바이저 인증 태그**: `index.html` 에 `naver-site-verification` = `db66169e330617a3c974c25b9ca087d1486a1632` (2026-09-22 손으로 넣음). 생성기(`regions.js`)에는 아직 없어서 **재생성하면 사라진다** — 재생성 후 이 태그를 다시 넣거나, 생성기 head 부분에 사이트별 인증값을 추가할 것.
 - GA4 측정 ID 미발급. `analytics.js` 의 `GA_ID` 가 비어 있어 지금은 아무것도 보내지 않는다. 발급하면 그 한 줄만 채우고 `사이트관리/사이트대장.md` 10절에 적는다.
 
 ## 이 사이트만의 구조
