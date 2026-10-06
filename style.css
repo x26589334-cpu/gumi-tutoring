@@ -235,3 +235,16 @@ footer .small{color:rgba(255,255,255,.6)}
   .quick{padding:22px 16px 18px}
   .q-fab{bottom:74px;left:12px;font-size:.85rem;padding:10px 15px}
 }
+
+
+/* ── 2026-10-06 히어로 그림(한국관광공사 사진 → 그림체 변환) — 구미 손작업 디자인 위에 덧붙임 ── */
+.hero-art{position:absolute;top:0;bottom:0;right:0;left:0;z-index:-2}
+.hero-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--pos)}
+.hero.has-art .scrim{background:linear-gradient(90deg,rgba(253,245,236,.94) 0%,rgba(253,245,236,.7) 40%,rgba(253,245,236,0) 68%)}
+.hero-credit{position:absolute;right:12px;bottom:6px;font-size:.68rem;color:var(--ink-soft);opacity:.7;z-index:1}
+@media(max-width:900px){
+  .hero-art{left:0;width:100%;top:auto;height:320px;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 28%);mask-image:linear-gradient(180deg,transparent 0,#000 28%)}
+  .hero-art img{object-position:var(--mpos)}
+  .hero.has-art .wrap{padding-bottom:290px}
+  .hero.has-art .scrim{background:none}
+}
